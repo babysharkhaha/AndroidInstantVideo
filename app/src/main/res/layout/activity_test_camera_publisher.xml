@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ /*
   ~  *
   ~  *  * Copyright (C) 2017 ChillingVan
@@ -19,8 +18,7 @@
   ~  */
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,46 +29,43 @@
         android:id="@+id/test_camera_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="record"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="clickStartTest"
+        android:text="record"
         app:layout_constraintHorizontal_bias="0.972"
-        app:layout_constraintTop_toBottomOf="@+id/camera_produce_view"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/camera_produce_view" />
 
 
     <com.chillingvan.instantvideo.sample.test.camera.CameraPreviewTextureView
         android:id="@+id/camera_produce_view"
         android:layout_width="0dp"
-        android:layout_height="250dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="300dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/ip_input_test"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="rtmp://192.168.2.28:19305/live"
-        android:hint="rtmp://192.168.1.139:19305/live"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="rtmp://192.168.1.139:19305/live"
+        android:text="rtmp://192.168.2.28:19305/live"
         app:layout_constraintLeft_toLeftOf="@+id/camera_produce_view"
         app:layout_constraintRight_toLeftOf="@+id/test_camera_button"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/camera_produce_view"/>
+        app:layout_constraintTop_toBottomOf="@+id/camera_produce_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
