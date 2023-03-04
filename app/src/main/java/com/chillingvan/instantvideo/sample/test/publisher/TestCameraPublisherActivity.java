@@ -81,8 +81,8 @@ public class TestCameraPublisherActivity extends AppCompatActivity {
         addrEditText = (EditText) findViewById(R.id.ip_input_test);
 
 
-        instantVideoCamera = new InstantVideoCamera(Camera.CameraInfo.CAMERA_FACING_FRONT, 640, 480);
-//        instantVideoCamera = new InstantVideoCamera(Camera.CameraInfo.CAMERA_FACING_FRONT, 1280, 720);
+//        instantVideoCamera = new InstantVideoCamera(Camera.CameraInfo.CAMERA_FACING_FRONT, 640, 480);
+        instantVideoCamera = new InstantVideoCamera(Camera.CameraInfo.CAMERA_FACING_BACK, 720, 720);
 
         handlerThread = new HandlerThread("StreamPublisherOpen");
         handlerThread.start();
@@ -146,8 +146,8 @@ public class TestCameraPublisherActivity extends AppCompatActivity {
         }
         int width = outsideTexture.getWidth();
         int height = outsideTexture.getHeight();
-        canvasGL.drawSurfaceTexture(outsideTexture, outsideSurfaceTexture, 0, 0, width /2, height /2, textureFilterLT);
-        canvasGL.drawSurfaceTexture(outsideTexture, outsideSurfaceTexture, 0, height/2, width/2, height, textureFilterRT);
+        canvasGL.drawSurfaceTexture(outsideTexture, outsideSurfaceTexture, 0, 0, width , width , textureFilterLT);
+//        canvasGL.drawSurfaceTexture(outsideTexture, outsideSurfaceTexture, 0, height/2, width/2, height, textureFilterRT);
         videoFrameHandlerHelper.initDrawHelper(width/2, height/2);
         videoFrameHandlerHelper.drawText(canvasGL);
     }
@@ -184,5 +184,25 @@ public class TestCameraPublisherActivity extends AppCompatActivity {
             handler.sendEmptyMessage(1);
             textView.setText("STOP");
         }
+    }
+    public void switchCamera(View view) {
+        if(null==instantVideoCamera)return;
+        if(null==streamPublisher)return;
+        instantVideoCamera.switchCamera();
+        instantVideoCamera.startPreview();
+//      if (streamPublisher.isStart()) {
+//            streamPublisher.closeAll();
+//        }
+//        streamPublisher.resumeCamera();
+//        handler.sendEmptyMessage(1);
+
+//        TextView textView = (TextView) view;
+//        if (streamPublisher.isStart()) {
+//            streamPublisher.closeAll();
+//        } else {
+//            streamPublisher.resumeCamera();
+//            handler.sendEmptyMessage(1);
+//            textView.setText("STOP");
+//        }
     }
 }
